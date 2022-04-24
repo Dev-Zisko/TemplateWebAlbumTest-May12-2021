@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
+
+:root {
+    --main-gray-color: #1E1E1E;
+    --main-gray-light-color: #545454;
+    --main-black-color: #0F0F0F;
+    --main-orange-color: #FF7700;
+    --main-orange-dark-color: #BC4B00;
+    --main-yellow-color: #FFD800;
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 60px; /* Igual a la altura del footer */
+    background: rgb(211,120,40);
+    background: linear-gradient(180deg, rgba(211,120,40,1) 30%, rgba(255,159,81,1) 100%);
+    font-family: 'DotGothic16', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+}
+
+.img-header {
+    height: 150px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}
+
+footer {
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+
+.img-footer {
+    height: 60px;
+    object-fit: cover;
+    position: absolute;
+    z-index: 0;
+}
+
+.text-footer {
+    top: 3px;
+    left: 37.5%;
+    position: absolute;
+    z-index: 1;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.footer-links {
+    color: black;
+    text-decoration: none;
+}
+
+.footer-links:hover {
+	color: #4800FF;
+    transition: color .3s;
+}
+
+.grid-container-drops {
+    display: grid;
+    margin-top: 35px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 10px;
+}
+
+.grid-drops {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 25px;
+}
+
+.grid-container-drop {
+    border: 1px solid var(--main-orange-color);
+	box-shadow: 0px 20px 20px -20px var(--main-yellow-color);
+    background-image: linear-gradient(to top, #1a1a1a, #31232e, #512833, #6b3326, #714a0d);
+    text-align: center;
+    height: 300px;
+    transition: .6s;
+}
+
+/* slider обертка */
+.slider {
+	position: relative;
+	height: 100%;
+	width: 100%;
+	overflow:hidden;
+}
+
+/*Окно со слайдами*/
+.slider-content {
+	position: relative;		
+	width: 100%;
+}
+
+/*Контейнер для слайдов (передвигаем)*/
+.slider-content-wrapper {
+	display: flex;
+	height: 448px;
+	transition: transform 0.5s ease-in-out;
+}
+
+/*Слайд*/
+.slider-content__item {
+	flex: 1 0 100%;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	font-size: 100px;
+	color: rgba(0,0,0,0.2);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.image-1 {background-color: #963484;}
+.image-2 {background-color: #3066BE;}
+.image-3 {background-color: #60AFFF;}
+.image-4 {background-color: #28C2FF;}
+.image-5 {background-color: #2AF5FF;}
+.image-6 {background-color: navy;}
+
+
+/* Блок с контролами */
+.slider-controls {
+	padding:20px;
+	text-align: center;
+}
+
+/* Блок с контролами внутри окна */
+.slider-content__controls {
+	position:absolute;
+	top:0;left:0;
+	width: 100%;
+	height: 100%;
+	z-index:1;
+	/*transform: translateY(-50%);*/
+	/*padding:0 15px;*/
+}
+
+/* Arrows */
+.prev-arrow, .next-arrow {
+	position:absolute;
+	top:50%;
+	transform: translateY(-50%);
+	cursor: pointer;
+	color:rgba(0,0,0, 0.3);
+	width: 20px;
+	transition: all 0.3s;
+}
+.prev-arrow {left: 20px;}
+.next-arrow {right: 20px;}
+
+.prev-arrow:hover,
+.next-arrow:hover {
+	cursor: pointer;
+	color:rgba(0,0,0, 0.7);
+}
+
+/* Dots */
+.dots {
+	position:absolute;
+	display: flex;
+	left:50%;
+	transform: translateX(-50%);
+	bottom:10%;
+}
+
+.dot {
+	cursor: pointer;
+	width: 8px;
+	height: 8px;
+	margin-right: 4px;
+	background-color: rgba(0,0,0, 0.3);
+	/*box-shadow: 0 0 5px 0px rgba(0,0,0,0.9);*/
+	border-radius: 50%;
+	transition:all 0.3s;
+}
+
+.dot:last-child {margin-right: 0;}
+.dot:hover {background-color: #fff;}
+.dot--active {background-color: rgba(255,255,255, 0.5);}
+
+/* Buttons */
+button {
+	cursor: pointer;
+	margin-right: 8px;
+	border:none;
+	border-radius: 4px;
+	padding:10px;
+	background-color: #3066BE;
+	color:#FFF;
+	transition: all 0.5s;
+}
+button:last-child {margin-right: 0;}
+button:hover {background-color: #60AFFF;}
+button:focus {outline: none;}
+
+/* Mods */
+.disabled {
+	background-color: #DCCFCF;
+	color:#B0A8A8;
+	cursor: default;
+	pointer-events:none;
+}
+
+.d-none {display: none;}
+.active {opacity: 1;}
+.centered {
+	position:relative;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);	
+}
+
+@media (max-width: 900px) {
+	.text-footer {
+		left: 20%;
+	}
+}
